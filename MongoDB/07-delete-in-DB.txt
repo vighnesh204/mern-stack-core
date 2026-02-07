@@ -1,0 +1,96 @@
+🚀 deleteOne
+
+db.collection.deleteOne(<filter>, <options>)
+
+🚀 deleteMany
+
+db.collection.deleteMany(<filter>, <options>)
+
+db.dropDatabase()
+
+
+🚀 1. deleteOne() – Delete Single Document
+
+Syntax
+
+db.ninja.deleteOne({ name: "Sakura" })
+
+
+Anime Meaning =>
+Sirf ek ninja (Sakura) ka record delete hoga
+
+Hinglish Use :
+Single user remove
+Cancelled order
+Account deletion
+👉 Most used in real projects
+
+
+🚀 2. deleteMany() – Delete Multiple Documents
+
+Syntax
+
+db.ninja.deleteMany({ village: "Sand" })
+
+
+Anime Meaning =>
+Sand village ke saare ninjas delete ho jaayenge
+
+Hinglish Use :
+Inactive users remove
+Old logs cleanup
+⚠️ Production me carefully use hota hai
+
+
+🚀 3. Delete All Documents (Collection Clean)
+
+Syntax
+
+db.ninja.deleteMany({})
+
+👉 Empty object pass kiya
+➡️ Koi condition nahi
+➡️ Collection ke sab documents delete ho jaayenge.
+
+
+Anime Meaning =>
+Puri ninja list wipe ho jaati hai 😱
+
+Hinglish Use :
+Testing environment reset
+Temporary data cleanup
+
+
+🚀 4. findOneAndDelete() – Delete + Return Deleted Data
+
+Syntax
+
+db.ninja.findOneAndDelete({ name: "Orochimaru" })
+
+
+Anime Meaning =>
+Ninja delete bhi hua aur uska data mil bhi gaya
+
+Hinglish Use :
+Audit logs
+Undo / confirmation screens
+
+
+🚀 findOneAndDelete()
+db.ninja.findOneAndDelete({ name: "Orochimaru" })
+
+
+👉 Ninja delete bhi ho gaya
+👉 Deleted ninja ka data return bhi mil jaata hai.
+
+🚀 drop() – Delete Collection
+
+            db.ninja.drop()
+
+👉 Puri ninja collection delete ho jaati hai
+👉 Data + structure dono gone.
+
+
+🔹 dropDatabase() – Delete Entire Database
+
+            db.dropDatabase()

@@ -1,0 +1,183 @@
+🚀 UPDATE in DB
+
+updateOne
+
+db.collection.updateOne(<filter>, <update>, <options>)
+db.student.updateOne( {name: "Gojo Satoru"}, {$set: {marks: 25}} )
+
+
+🚀 1. updateOne() – Update a Single Document
+Syntax
+
+db.student.updateOne(
+  { rollNo: 101 },
+  { $set: { marks: 88, city: "Pune" } }
+)
+
+
+Explanation (Hinglish) =>
+Sirf ek matching document update hota hai
+Filter first object me hota hai
+Actual update operators second object me
+
+Industry Use :
+Profile update
+Status change
+Single order update
+👉 Most commonly used update method in production
+
+🚀 2. updateMany() – Update Multiple Documents
+Syntax
+
+db.student.updateMany(
+  { city: "Delhi" },
+  { $set: { state: "Delhi-NCR" } }
+)
+
+Explanation =>
+Jo bhi documents condition match kare, sab update ho jaate hain
+Bulk updates ke liye use hota hai
+
+Industry Use :
+Policy changes
+Data migration
+Mass status update
+⚠️ Production me carefully use hota hai
+
+🚀 3. replaceOne() – Replace Entire Document
+
+Syntax
+
+db.student.replaceOne(
+  { rollNo: 105 },
+  { rollNo: 105, name: "Aman", marks: 76, city: "Mumbai" }
+)
+
+Explanation =>
+Purana document completely replace ho jaata hai
+$set allowed nahi hota
+
+Industry Use :
+Rarely used
+Jab pura document fresh banana ho
+⚠️ Wrong use se data loss ho sakta hai
+
+
+🚀 Update Operators (Industry-Level)
+
+🔹 $set – Add / Update Fields
+
+db.student.updateOne(
+  { name: "Ravi" },
+  { $set: { email: "ravi@gmail.com" } }
+)
+
+Use: Safe update, naya field add karna
+
+
+🔹 $unset – Remove Field
+
+db.student.updateOne(
+  { name: "Ravi" },
+  { $unset: { tempData: "" } }
+)
+
+Use: Unwanted / obsolete field remove
+
+
+🔹 $inc – Increment / Decrement Value
+
+db.student.updateOne(
+  { name: "Rahul" },
+  { $inc: { marks: 5 } }
+)
+
+Use: Counters, wallet balance, scores
+
+
+🔹 $push – Add to Array
+
+db.student.updateOne(
+  { name: "Neha" },
+  { $push: { skills: "Node.js" } }
+)
+
+Use: Cart items, skills, roles
+
+
+🔹 $pull – Remove from Array
+
+db.student.updateOne(
+  { name: "Neha" },
+  { $pull: { skills: "Java" } }
+)
+
+Use: Remove cart item, permission revoke
+
+
+🔹 $addToSet – Add Unique Value in Array
+
+db.student.updateOne(
+  { name: "Neha" },
+  { $addToSet: { skills: "React" } }
+)
+
+Use: Duplicate entry avoid
+👉 Industry preferred over $push
+
+
+🔹 $rename – Rename Field
+
+db.student.updateMany(
+  {},
+  { $rename: { mobile: "phoneNumber" } }
+)
+
+Use: Schema refactor without data loss
+
+
+🔹 $currentDate – Timestamp Update
+
+db.student.updateOne(
+  { name: "Amit" },
+  { $currentDate: { updatedAt: true } }
+)
+
+Use: Audit logs, tracking updates
+
+
+🔹 upsert: true – Update or Insert
+
+db.student.updateOne(
+  { rollNo: 150 },
+  { $set: { name: "Kunal", marks: 70 } },
+  { upsert: true }
+)
+
+Use:
+Data exist → update
+Data nahi → insert
+👉 Settings, configs, preferences
+
+
+🔹 findOneAndUpdate() – Update + Return Data
+
+db.student.findOneAndUpdate(
+  { name: "Sneha" },
+  { $set: { marks: 92 } },
+  { returnDocument: "after" }
+)
+
+Use:
+Updated document chahiye turant
+APIs, dashboards
+
+
+✅ Industry Best Practices (VERY IMPORTANT)
+
+✔ Always use updateOne / updateMany
+✔ Avoid replaceOne unless required
+✔ Never update without operators
+✔ Maintain updatedAt field
+✔ Use $addToSet for arrays
+✔ Validate data at backend (Node / Mongoose)

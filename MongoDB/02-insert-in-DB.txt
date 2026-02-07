@@ -1,0 +1,62 @@
+🚀 INSERT in DB
+
+🚀 insertOne
+
+db.collection.insertOne()  => Inserts a single document into a collection
+
+show collections
+db.student.insertOne({ name: "Satoru Gojo", marks: 25 })
+db.student.find()
+
+If a collection does not exist, MongoDB creates the collection when you first stores data for that collection.
+
+=> mtlb, db.student.insertOne({ name: "Satoru Gojo", marks: 25 }) 
+=> hmne ye line chalayi to collection automatically bn jayega agr already created na ho
+
+=> hm kisi bhi type ka data store kr skte hai 
+=> first data is completely different from second data no restriction
+
+college> db.student.insertOne({ name: "Satoru Gojo", marks: 25 })
+{
+  acknowledged: true,
+  insertedId: ObjectId('69839514d18fddcefe628ca0')
+}
+college> db.student.insertOne({ name: "Jinwoo Sung", anime:"Solo Levelling" ,marks: 20 })
+{
+  acknowledged: true,
+  insertedId: ObjectId('6983953bd18fddcefe628ca1')
+}
+college> db.student.find()
+[
+  {
+    _id: ObjectId('69839514d18fddcefe628ca0'),
+    name: 'Satoru Gojo',
+    marks: 25
+  },
+  {
+    _id: ObjectId('6983953bd18fddcefe628ca1'),
+    name: 'Jinwoo Sung',
+    anime: 'Solo Levelling',
+    marks: 20
+  }
+]
+
+
+🚀 insertMany()
+
+insertMany(array of documents)
+
+db.student.insertMany([ { name: "Gojo", marks: 15} , { name: "Sukuna", city: "Japan"}])
+
+
+db.collection.insertMany()
+=> Inserts multiple documents into a collection
+
+college> db.student.insertMany([ { name: "Gojo", marks: 15, city: "Japan"}, { name: "Sukuna", marks: 25, city: "Japan"} ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6983976fd18fddcefe628ca2'),
+    '1': ObjectId('6983976fd18fddcefe628ca3')
+  }
+}

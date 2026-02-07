@@ -1,0 +1,114 @@
+🚀 Query Operators
+
+Q. Find students where marks > 75
+
+db.student.find({ marks: { $gt: 75 } })
+
+
+Q. Find students who live in Delhi or Mumbai
+
+db.student.find({ city: { $in: ["Delhi", "Mumbai"] } })
+
+
+Q. Find students who scored > 75 or live in Delhi
+
+db.student.find({ $or: [{ marks: { $gt: 75 } }, { city: "Delhi" }] })
+
+
+
+
+
+Short Hinglish Explanation (Industry Use)
+
+$gt (greater than): Jab real projects me hume filters lagane hote hain jaise top performers, eligible candidates, ya high score users — tab use hota hai.
+
+$in: Jab multiple values me se match chahiye (jaise multiple cities, categories, roles) — industry apps me common hai.
+
+$or: Jab condition flexible ho (yeh ya woh chalega) — search filters, dashboards, reports me heavily use hota hai.
+
+
+
+
+🔹 Most Useful MongoDB Operators (Industry Level)
+1. $lt, $lte, $gte (Range Queries)
+db.student.find({ marks: { $gte: 60, $lte: 90 } })
+
+
+Use (Hinglish):
+Scores, salary range, price filter (Amazon, Flipkart jaise apps) ke liye use hota hai.
+
+2. $ne (Not Equal)
+db.student.find({ city: { $ne: "Delhi" } })
+
+
+Use:
+Jab kisi specific value ko exclude karna ho (inactive users, blocked status).
+
+3. $and
+db.student.find({
+  $and: [
+    { marks: { $gt: 75 } },
+    { city: "Mumbai" }
+  ]
+})
+
+
+Use:
+Multiple strict conditions ke liye (eligible users, verified + active accounts).
+
+4. $exists
+db.student.find({ email: { $exists: true } })
+
+
+Use:
+Check karne ke liye field present hai ya nahi
+👉 Real-world: incomplete profiles, missing data detection.
+
+5. $regex (Search / Pattern Match)
+db.student.find({ name: { $regex: "^A", $options: "i" } })
+
+
+Use:
+Search functionality (name search, email search)
+👉 HR portals, admin panels, CRM systems.
+
+6. $limit
+db.student.find().limit(5)
+
+
+Use:
+Pagination ke liye (Top 5 results, latest users).
+
+7. $sort
+db.student.find().sort({ marks: -1 })
+
+
+Use:
+Leaderboard, ranking system, latest records.
+
+8. $count
+db.student.countDocuments({ city: "Delhi" })
+
+
+Use:
+Dashboard stats (total users, total orders, total sales).
+
+9. $push (Array Update)
+db.student.updateOne(
+  { name: "Rahul" },
+  { $push: { skills: "React" } }
+)
+
+
+Use:
+User skills, cart items, roles add karne ke liye.
+
+10. $pull (Remove from Array)
+db.student.updateOne(
+  { name: "Rahul" },
+  { $pull: { skills: "Java" } }
+)
+
+
+Use:
+Cart se item remove, role revoke, permission remove.

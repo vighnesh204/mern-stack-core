@@ -1,0 +1,92 @@
+🚀 The Shell
+
+mongosh // to start
+
+use anime // to create & use a new database called "anime"
+
+C => create / insert
+R => read / find
+U => update
+D => delete
+
+🚀 Mongo Shell shortcuts
+
+ctrl + k => to clear screen
+show dbs => show krdo saare ke saare databases
+db => current database ka naam dikhata hai
+exit 
+quit
+
+🚀 MongoDB ke liye koi database permanent tb bnta hai jb hm usme koi data store krte hai
+
+🚀 BSON data
+
+Binary JSON
+=> MongoDB ke andr data ek special format me store hota hai jise hm kehte hai BSON data
+
+🚀  hmare paas data ke 2 format hote hai 
+        ek hota hai => JSON format                            
+        doosra hota hai => BSON format
+
+=> JSON format ke andr kuch kuch issues hote hai wo BSON format solve krta hai
+=> ek to ye hota hai ki JSON ek text based format hai jiski parsing hoti hai that is difficult usko BSON format solve krta hai
+=> JSON data space inefficient hota hai jo hmara text format hai uske liye space thoda jyada lgta hai store hone me jo solve cheej solve krta hai hamara BSON format
+=> 🚀 hm mongo ko json he denge pr mongoDB use binary format me convert krke phir memory me store krega
+=> JSON format me data ke types hai wo thode se km hote hai BSON hme aur jyada data types deta hai jinko hm store krva skte hai
+
+
+                JSON                            BSON
+Encoding        UTF-8 String                    Binary
+Data Support    String, Boolean, Number,        String, Boolean, Number,
+                Array, Object, null             (Integer, Float, Long, Decimal128...),
+                                                Array, Null, Date, BinData
+Readability     Human and Machine               Machine Only
+
+
+🚀 Collections
+
+Document => Mongo stores data in form of documents (BSON docs)
+
+Collection => MongoDB stores documents in collections
+
+
+🚀 Collections (Anime Style)
+
+Document 👉
+MongoDB data ko documents ke form me store karta hai (BSON format me).
+Document matlab ek character ka complete data.
+
+🧠 Example (Anime):
+Socho Naruto ek anime hai.
+Naruto ka data ek document hoga, jaise:
+
+Name: Naruto
+Village: Leaf
+Power: Rasengan
+Rank: Hokage
+
+➡️ Ye sab milkar ek single document ban gaya (Naruto ka record).
+
+
+Collection 👉
+MongoDB bahut saare documents ko milakar collection banata hai.
+Collection matlab sab characters ka group.
+
+🧠 Example (Anime):
+Naruto ka data = 1 Document
+Sasuke ka data = 1 Document
+Sakura ka data = 1 Document
+
+➡️ In sab characters ke documents milkar jo banta hai = Collection
+
+👉 Short me:
+
+Document = ek anime character ka full data
+
+Collection = sab anime characters ka group
+
+🎯 Easy line:
+
+Naruto = Document
+
+Naruto, Sasuke, Sakura = Collection

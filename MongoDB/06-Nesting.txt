@@ -1,0 +1,22 @@
+🚀  Nesting ka matlab hota hai document ke andar document store karna.
+
+db.ninja.insertOne({
+  name: "Naruto",
+  village: "Leaf",
+  stats: {
+    power: 95,
+    chakra: 100,
+    rank: "Hokage"
+  }
+})
+
+
+🔍 Nested Field Access
+
+    db.ninja.find({ "stats.rank": "Hokage" })
+
+💡 Hinglish Explanation =>
+stats ek nested object hai
+Dot notation (stats.rank) se andar ke data ko access karte hain
+Real projects me user profile, address, settings nested hote hain
+👉 Industry me nesting use hoti hai data ko clean, structured aur fast access ke liye.

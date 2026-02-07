@@ -1,0 +1,33 @@
+🚀 FIND in DB
+
+db.collection.find() // returns everything
+
+🚀 for specific queries
+
+db.collection.find({ key: value })
+
+db.collection.findOne({ key: value })
+
+
+college> db.student.find( { city: "Japan"} )
+[
+  {
+    _id: ObjectId('6983976fd18fddcefe628ca2'),
+    name: 'Gojo',
+    marks: 15,
+    city: 'Japan'
+  },
+  {
+    _id: ObjectId('6983976fd18fddcefe628ca3'),
+    name: 'Sukuna',
+    marks: 25,
+    city: 'Japan'
+  }
+]
+college> db.student.findOne( { city: "Japan"} )
+{
+  _id: ObjectId('6983976fd18fddcefe628ca2'),
+  name: 'Gojo',
+  marks: 15,
+  city: 'Japan'
+}
