@@ -1,0 +1,75 @@
+🚀 The way to exports that is by wrapping it inside an object like,
+
+🔹 First Method (Normal Object Syntax)
+
+        module.exports = {
+            calculateSum: calculateSum,
+            x : x,
+        }
+
+Yahan tum manually key–value pair bana rahe ho.
+
+👉 Meaning:
+
+key = calculateSum
+value = calculateSum function
+
+
+🔹 🚀 Second Method (Shorthand Property Syntax) ✅ => Good practice
+
+        module.exports = {
+            calculateSum,
+            x,
+        }
+
+Ye ES6 shorthand property syntax hai.
+Yeh tab use hota hai jab:
+
+key ka naam
+variable/function ka naam
+same ho
+
+Internally dono same hi hai.
+
+
+
+🚀 Importing the Module
+
+Assuming calculateSum.js exports:
+
+        module.exports = {
+            calculateSum,
+            x,
+        }
+
+
+✅ Method 1: Import the Entire Module Object
+
+        const obj = require('./calculateSum.js')
+
+        obj.calculateSum(a,b);
+
+        console.log(obj.x);
+
+
+✔ Explanation:
+
+require() returns the exported object.
+We store that object in obj.
+Access its properties using dot notation.=> like obj.calculateSum;
+
+
+✅ Method 2: Destructuring on the fly => Good practice 🚀
+
+        const { x, calculateSum} = require('./calculateSum.js')
+
+        calculateSum(a,b);
+
+        console.log(x);
+
+
+✔ Explanation:
+
+We directly extract calculateSum and x from the exported object.
+This avoids writing the object name repeatedly.
+Cleaner and more modern approach.

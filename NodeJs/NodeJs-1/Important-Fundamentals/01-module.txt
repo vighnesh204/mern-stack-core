@@ -1,0 +1,83 @@
+🚀 Modules by default protected.
+🚀 Modules protects their variables and functions from leaking.
+
+🚀 We cannot access the 
+=> variables 
+=> methods 
+=> functions 
+of one module into another module simply by requiring it.
+
+🚀 For example ,
+we have three files =>
+
+🚀 app.js => entry point
+🚀 calculateSum.js
+🚀 newFile.js
+
+
+🚀 app.js => entry point
+
+require("./newFile"); // execute first 
+const calculateSum = require("./calculateSum"); 
+
+var a = 5;
+var b = 10;
+
+calculateSum(a, b);
+
+console.log(globalThis === global);
+
+
+🚀 calculateSum.js
+
+console.log("calculateSum Module Executed 🚀")
+
+const calculateSum = (a, b) =>{
+    const sum = a + b;
+
+    console.log("Sum is : ", sum);
+}
+
+🚀 newFile.js
+
+console.log("NewFile Module Executed 🚀")
+
+
+🚀 Suppose, if i want to give access of calculateSum() to the app.js how would i do that ?
+=> For that, i would have to 🚀export this function from this files
+and then 🚀import that function into another file
+
+🚀 we use a object which is known as ,
+
+            module.exports
+
+
+🔹 1️⃣ Default Structure Samjho
+
+Node.js har file ko internally wrap karta hai aur har module ke paas ek object hota hai:
+
+module = {
+  exports: {}
+}
+
+
+👉 Yaani by default:
+
+module.exports = {}
+
+Ek empty object hota hai.
+
+🚀 In calculateSum.js we export like this,
+
+module.exports = calculateSum;
+
+🚀 Whatever you will export over here will be returned from this require() function
+
+🚀 In app.js we require() like this,
+
+const calculateSum = require('./calculateSum');
+
+🚀 Basically you cannot access the private variables, functions of any module
+=> If you want to use private variables and functions you need to export it
+=> and once you export it
+=> you will get that returned from the require() statement
