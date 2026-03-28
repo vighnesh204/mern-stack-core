@@ -8,6 +8,11 @@ app.use((req, res, next)=>{
     next();
 })
 
+// Creating Utility Middleware
+// logger - like morgan
+app.use((req, res, next)=>{
+    console.log(req.method, req.path, req.hostname)
+})
 app.get("/", (req, res)=>{
     res.send("Home Page")
 })
