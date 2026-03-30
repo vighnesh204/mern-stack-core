@@ -25,16 +25,28 @@ app.get("/", (req, res)=>{
 // API Token as a Query String
 // http://localhost:8080/api?token=giveaccess
 // agr token sahi hoga to data milega warna access denied aayega
-app.use("/api", (req, res)=>{
+// app.use("/api", (req, res)=>{
+//     let { token }= req.query;
+//     if(token === "giveaccess"){
+//         next();
+//     }
+//     res.send("ACCESS DENIED")
+// })
+
+
+const checkToken = (req, res, next)=>{
     let { token }= req.query;
-    if(token === "giveaccess"){
+     if(token === "giveaccess"){
         next();
     }
     res.send("ACCESS DENIED")
-})
+}
+
 
 // API Route for data
-app.get("/api", (req, res)=>{
+// Passing Multiple Middleware to a Route
+// jb bhi /api route hit hoga to pehle checkToken middleware execute hoga aur agar token sahi hoga to data milega warna access denied aayega
+app.get("/api", checkToken, (req, res)=>{
     res.send("Data")
 })
 
