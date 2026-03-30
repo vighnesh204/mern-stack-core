@@ -22,6 +22,22 @@ app.get("/", (req, res)=>{
     res.send("Home Page")
 })
 
+// API Token as a Query String
+// http://localhost:8080/api?token=giveaccess
+// agr token sahi hoga to data milega warna access denied aayega
+app.use("/api", (req, res)=>{
+    let { token }= req.query;
+    if(token === "giveaccess"){
+        next();
+    }
+    res.send("ACCESS DENIED")
+})
+
+// API Route for data
+app.get("/api", (req, res)=>{
+    res.send("Data")
+})
+
 app.use((req, res)=>{
     res.status(404).send("Page Not Found")
 })
