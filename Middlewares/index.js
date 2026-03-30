@@ -3,8 +3,13 @@ const app = express()
 
  
 // middleware created
-app.use((req, res, next)=>{
-    console.log("middleware executed")
+// app.use((req, res, next)=>{
+//     console.log("middleware executed")
+//     next();
+// })
+
+app.use("/react", (req, res, next)=>{
+    console.log("middleware executed for react route")
     next();
 })
 
@@ -15,6 +20,10 @@ app.use((req, res, next)=>{
 })
 app.get("/", (req, res)=>{
     res.send("Home Page")
+})
+
+app.use((req, res)=>{
+    res.status(404).send("Page Not Found")
 })
 
 app.listen(8080, ()=>{

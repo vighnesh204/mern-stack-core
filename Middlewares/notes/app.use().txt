@@ -1,0 +1,7 @@
+Middleware functions Express me app.use() ke through register kiye jaate hain, jahan ye ek callback function ki tarah kaam karte hain.
+
+app.use(path, callback)
+path (optional): Ye define karta hai ki middleware kis route/path par run hoga.
+callback: Ye actual middleware function hota hai jo request aur response ko handle karta hai.
+
+Agar path specify nahi kiya ya "/" pass kiya, to middleware har incoming request (sabhi routes) ke liye execute hoga.
