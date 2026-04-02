@@ -37,3 +37,12 @@ console.log(copy) // [1, 2, 3, 4]
 // agr hum object copy kr rhe hote to {...state} use krte
 // agar hum state ko directly copy krte to state aur copy dono same reference point krte aur dono me changes hote 
 // isliye spread operator use kr rhe hai taki state aur copy alag alag reference point kre aur dono me changes na ho
+
+// State ko hm directly nhi change kr skte 
+
+let data = { name : "Gojo", score: 25 }
+
+let copyData = {...data, score: 30} // copyData me data ka copy store hota hai aur score ko 30 kar diya jata hai
+
+console.log(data) // { name: 'Gojo', score: 25 }
+console.log(copyData) // { name: 'Gojo', score: 30 }
