@@ -50,9 +50,17 @@ app.get("/api", checkToken, (req, res)=>{
     res.send("Data")
 })
 
-app.use((req, res)=>{
-    res.status(404).send("Page Not Found")
+// app.use((req, res)=>{
+//     res.status(404).send("Page Not Found")
+// })
+
+// Error Handling Middleware
+app.use((err, req, res, next)=>{
+    console.error("------ Error Occurred ------");
+    next(err); // Pass the error to the default Express error handler
+    // next(); // If you want to continue to the next middleware without sending a response, use next() without arguments
 })
+
 
 app.listen(8080, ()=>{
     console.log("Server is running")

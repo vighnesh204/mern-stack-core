@@ -1,0 +1,21 @@
+// jb bhi koi bhi error aata hai hamare code ke andr chahe wo server side error ho ya client side error ho ya req ke andr kuch issues aa rhe ho to hmesha express ka default error handler trigger hota hai aur wo apne hisab se error handle krta hai
+
+// agr ise kuch status code nhi milta to wo bydefault 500 status code send krta hai
+
+// ye jo error handlers hote hai wo actually middlewares hote hai
+
+// How we define our custom error handlers ?
+
+// Error Handling Middleware
+app.use((err, req, res, next)=>{
+    console.error("------ Error Occurred ------");
+    next(err); // Pass the error to the default Express error handler
+    // next(); 
+    // If you want to continue to the next middleware without sending a response, use next() without arguments
+})
+
+next(); => simply next likhte hai to hm non error handling middlewares ko call lgana chahte hai
+
+aur jb hm likhte hai 
+
+next(err); => iska mtlb hai ki hm error handling middleware ko call lagana chahte hai
