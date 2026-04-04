@@ -55,10 +55,17 @@ app.get("/api", checkToken, (req, res)=>{
 // })
 
 // Error Handling Middleware
+// app.use((err, req, res, next)=>{
+//     console.error("------ Error Occurred ------");
+//     next(err); // Pass the error to the default Express error handler
+//     // next(); // If you want to continue to the next middleware without sending a response, use next() without arguments
+// })
+
+// default status and message
 app.use((err, req, res, next)=>{
     console.error("------ Error Occurred ------");
-    next(err); // Pass the error to the default Express error handler
-    // next(); // If you want to continue to the next middleware without sending a response, use next() without arguments
+    const { status = 500, message = "Something went wrong" } = err; // Destructure status and message from the error object, with default values
+    res.status(status).send(message);
 })
 
 
