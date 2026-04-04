@@ -30,3 +30,27 @@ next(err); => iska mtlb hai ki hm error handling middleware ko call lagana chaht
 => hm custom informtaion bhejna chahte hai depending upon kis type ka error aaya hai kyuki server side pr alg alg types ke errors aa skte hai
 => apne konse error ke liye kis tareeke ka data client ko bhejna chahte hai
 => to uske liye hm apni custom error classes ko use krte hai
+ExpressError.js
+
+class ExpressError extends Error {
+    constructor(status, message){
+        super();
+        this.status = status;
+        this.message = message;
+    }   
+}
+
+module.exports = ExpressError;
+
+
+index.js
+
+const ExpressError = require('./ExpressError')
+
+const checkToken = (req, res, next)=>{
+    let { token }= req.query;
+     if(token === "giveaccess"){
+        next();
+    }
+    throw new ExpressError(401, "ACCESS DENIED");
+}
