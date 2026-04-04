@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-
+const ExpressError = require('./ExpressError')
  
 // middleware created
 // app.use((req, res, next)=>{
@@ -39,7 +39,7 @@ const checkToken = (req, res, next)=>{
      if(token === "giveaccess"){
         next();
     }
-    res.send("ACCESS DENIED")
+    throw new ExpressError(401, "ACCESS DENIED");
 }
 
 

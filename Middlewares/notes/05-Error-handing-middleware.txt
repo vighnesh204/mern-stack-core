@@ -19,3 +19,14 @@ next(); => simply next likhte hai to hm non error handling middlewares ko call l
 aur jb hm likhte hai 
 
 next(err); => iska mtlb hai ki hm error handling middleware ko call lagana chahte hai
+
+
+// Custom error class 
+
+=> abhi hm default status code mil rha hai
+=> agr custom error hamara ho to us case mein hm uska status code bhi set krna chahenge aur kuch message bhi set krna chahenge
+
+=> abhi stack trace aur message hai error me
+=> hm custom informtaion bhejna chahte hai depending upon kis type ka error aaya hai kyuki server side pr alg alg types ke errors aa skte hai
+=> apne konse error ke liye kis tareeke ka data client ko bhejna chahte hai
+=> to uske liye hm apni custom error classes ko use krte hai
