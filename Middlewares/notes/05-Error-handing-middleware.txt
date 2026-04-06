@@ -54,3 +54,15 @@ const checkToken = (req, res, next)=>{
     }
     throw new ExpressError(401, "ACCESS DENIED");
 }
+
+
+// using wrapAsync
+
+function asyncWrap(fn){
+    return function(req, res, next){
+        fn(req, res, next).catch((err)=> next(err))
+    }
+}
+
+// generally hamare jo asynchronous errors aayenge unke liye asynWrap define krenge
+// aur asyncWrap ke andr pura ka pura callback pass krenge
