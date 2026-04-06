@@ -1,0 +1,10 @@
+// Mongoose errors 
+like,
+ValidationError
+CastError
+
+// middleware to print error name 
+app.use((err, req, res, next)=>{
+    console.log(err.name)
+    next(err)
+})
