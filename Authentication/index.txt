@@ -40,3 +40,7 @@ controller
 => check if user exists in DB
 => match the password - password is already encrypted
 => create a key for user and send it (direct, cookie)
+
+/dashboard
+=> check if key exists - validate
+=> allow the access
