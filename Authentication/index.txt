@@ -20,3 +20,23 @@
 
 🚀 Information at login
 => email, password
+
+model
+User => first name, last name, email, password, token
+
+controller
+
+ /register
+ => collect all info from frontend => req.body
+ => validate - if all data exists, if not send a note
+ => check if user already exists, if yes dont proceed
+ => Encrypt the password
+ => save to DB and send a key (token)
+
+
+/login
+=> collect all info from frontend => req.body
+=> validate , if no info send a note 
+=> check if user exists in DB
+=> match the password - password is already encrypted
+=> create a key for user and send it (direct, cookie)
