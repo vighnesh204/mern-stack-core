@@ -1,0 +1,22 @@
+🚀 Goal
+
+    Register a user => it means i want to save it in some database 
+    Login a user => on top of that i want to login a user
+                 => It means the first time user comes up i save his information
+                 => second time a user comes in i want to query my database does this exist
+                 => If yes the i want to allow him to access dashboard
+    Allow him to access the dashboard but after login only
+                 => In order to acccess for this third step i want to use some kind of token so hey this is your key now
+                 => you can use this key to keep on logging in
+                 => with this token now user can say that ok as long as i have this token
+                 => i can access the page which is not accessible by the normal user
+
+                 => now user has many ways to doing this,
+                    => user can save this key in his cookies and can say that hey whenever i access any page you checkout from the server that do i have this cookie or not
+                    => there is also a way that any time i make a request in the header i will send you this token and if the token exist you allow me to access otherwise you dont
+
+🚀 Information at Register
+=> first name, last name, email, password
+
+🚀 Information at login
+=> email, password
