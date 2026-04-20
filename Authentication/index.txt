@@ -44,3 +44,12 @@ controller
 /dashboard
 => check if key exists - validate
 => allow the access
+
+
+the token is designed with three basic things
+Header information => It just says that its a type of JWT
+Payload => pass on an object and provide as much information as you want to
+        => when somebody will extract values from this token
+        => there is secret there somebody needs to have the exact secret to dcrypt the information
+        => when he dcrypt he will get all this Payload means data
+Signature
