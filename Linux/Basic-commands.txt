@@ -1,0 +1,9 @@
+pwd => present working directory
+whoami => gives name of the current loggedIn user
+ls => list (it list down all the contents)
+=> whatever has a / => those are directories
+=> whatever is written in white => those are files
+=> @ => shortcut links created over there
+
+mkdir
+cd => change directory
