@@ -1,5 +1,30 @@
 // FUNCTION Interview Questions
+// Question: What is a function?
+// A function is a block of code designed to perform a particular task. It is executed when "something" invokes it (calls it).
 
+// Question: What is function expression and function declaration?
+
+// Function Declaration : when you declare a function with a name, it is called function declaration. It is hoisted, which means it can be called before declaring it.
+function add(a, b) {
+  return a + b;
+}
+
+// Function Expression : when you store a function in a variable, it is called function expression. It can be anonymous or named.
+const add = function (a, b) {
+  return a + b;
+};
+
+// Question: What are first class functions?
+// First class functions mtlb wo functions jo treat kiye ja sakte hain as a value, mtlb unhe assign kiya ja sakta hai to a variable, pass kiya ja sakta hai as an argument to another function, return kiya ja sakta hai from another function. JavaScript is a language with first class functions.
+
+function add(a, b) {
+  return a + b;
+}
+
+function displayAdd(fn) {
+  console.log("Sum is " + fn(5, 7));
+}
+displayAdd(add);
 // Question 1 : Function Code
 
 function square(num) {
