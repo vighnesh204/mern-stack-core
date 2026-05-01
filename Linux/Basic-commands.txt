@@ -7,5 +7,3 @@ ls => list (it list down all the contents)
 
 mkdir
 cd => change directory
-
-
