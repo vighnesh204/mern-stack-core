@@ -7,3 +7,72 @@ ls => list (it list down all the contents)
 
 mkdir
 cd => change directory
+
+mkdir my app 
+=> here two directories are created  because of space 
+=> my and app are two directories created
+
+agr space ke saath directory create krni hai => my app
+=> mkdir "my app"
+
+
+🚀 various ways to create files 
+
+touch filename
+=> touch file1.txt
+
+🚀 Output redirection operator
+This is how to write content in the file using terminal => using echo command and along with echo command you also need to use output redirection
+
+overwrite file content => >
+=> mtlb agr file me pehle Frontend likha hoga to wo overwrite ho jayega 
+=> echo React > file.txt
+
+
+append => >>
+=> ye indicate krta hai content ko delete mt kro append kro 
+
+=> echo Full Stack >> file.txt
+
+
+=> It is a very clumsy way to write something inside our file 
+=> better way to write something inside our file 
+
+Two important text editors in Linux operating system
+=> nano
+=> vi (visual)
+
+=> nano
+
+=> nano filename
+=> able to see content of the file from terminal and also edit the content also create new file 
+=> nano file.txt
+
+=> nano is a simple efficient editor
+=> for save the content 
+=> ctrl + O
+
+=> for back 
+=> ctrl + x
+
+=> vi
+=> vi filename 
+
+=> vi react.txt
+
+=> to edit this file to mujhe insert mode me jana pdega 
+
+=> press I on the keyboard or insert key
+=> now we can edit the content
+=> once the content is modified press esc key 
+=> now we have to type something 
+=> :wq
+w => write content in this file 
+q => quit from the visual editor
+
+without edit file 
+:q!  => ! this mark because to quit forcefully
+
+🚀 which is better vi or nano ?
+=> In terms of performance vi is better 
+=> because nano is lightweight text editor 
