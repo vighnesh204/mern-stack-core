@@ -10,7 +10,6 @@
 // -------------------------------------------------------
 
 // Structure: for (initialization; condition; update)
-// Teen cheezein ek hi line mein — shuru kahan se, kab rukna hai, aur step kya hai.
 
 for (let i = 0; i < 5; i++) {
     console.log("React js", i);
