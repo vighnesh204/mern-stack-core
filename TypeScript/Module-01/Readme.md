@@ -2,6 +2,42 @@
 => TypeScript is a programming language developed by Microsoft. 
 => It is built on top of JavaScript and is designed to make JavaScript development more structured, safe, and scalable.
 
+=> npm i -g typescript
+
+=> tsc filename.ts
+=> for compile file 
+
+=> tsc
+=> to compile all the files 
+=> tsconfig.json hai agr empty bhi ho to bhi ye proper work krega nhi to kuch alg he output aayega 
+
+=> tsc --watch
+=> automatically reflect changes in JS file 
+
+=>  tsc app.ts script.ts --noEmit
+=> --noEmit ye bs check krega typescript file ka output nhi dega 
+=> multiple ts file provide kr skte hai
+
+=>  tsc app.ts script.ts --noEmitOnError
+=> agr error aayi  to koi output nhi aayega 
+=> multiple files me ek ke andr bhi error aayega to bhi output nhi aayega 
+
+🚀 app.ts app.js me jo redeclare ka error hai wo 2 tareeke se solve kr skte hai 
+
+=> app.ts me last me 
+        export {} 
+=> ek empty object use krenge phir ye ek module treat hota hai 
+
+=> ya tsconfig.json file create kro 
+
+
+🚀 Difference between Transpiler and Compiler 
+Level of Abstraction: Compilation me code high-level se low-level (machine code/bytecode) me jata hai. Transpilation me code lagbhag same level of abstraction (TS to JS) me rehta hai.
+
+Type Erasure: TSC ka main kaam hota hai saare type-checks karna aur final output se types ko remove (Type Erasure) karke standard JavaScript file generate karna, jise browser samajh sake.
+
+No Runtime Overhead: TypeScript runtime par exist nahi karti. Browser sirf wahi JS execute karta hai jo transpile hokar milti hai.
+
 TypeSCript is often described as:
     A typed superset of JavaScript. -->
 
@@ -19,6 +55,141 @@ Let's start with a question —
 You already know JavaScript, right?  
 JavaScript is great. It runs in browsers, in Node.js, everywhere.  
 But JavaScript has one **BIG personality trait...**
+
+# TypeScript Compiler (`tsc`) 
+
+## 🚀 What is `tsc`?
+
+`tsc` ka full form hai **TypeScript Compiler**.
+
+Ye TypeScript ecosystem ka official compiler hai jo mainly 2 kaam karta hai:
+
+1. **Type Checking**
+
+   * Code me type errors detect karta hai
+
+2. **Transpilation / Emission**
+
+   * `.ts` files ko `.js` files me convert karta hai
+
+---
+
+## 🚀 Compiler vs Transpiler
+
+### Compiler
+
+Compiler source code ko analyze karke target output generate karta hai.
+
+Target output ho sakta hai:
+
+* Machine Code
+* Binary
+* Bytecode
+* Intermediate Representation
+* Another language
+
+Examples:
+
+* C Compiler → Binary
+* Java Compiler → Bytecode
+* TypeScript Compiler → JavaScript
+
+---
+
+### Transpiler
+
+Transpiler ek **high-level language** ko dusri **high-level language** me convert karta hai.
+
+Abstraction level almost same rehta hai.
+
+Examples:
+
+* TypeScript → JavaScript
+* JSX → JavaScript
+* Modern JS → Older JS (via Babel)
+
+---
+
+## 🚀 Is `tsc` Compiler or Transpiler?
+
+Best answer:
+
+`tsc` officially **compiler** hai, but practical terms me ye heavily **transpiler-like behavior** show karta hai because it converts:
+
+TypeScript → JavaScript
+
+Machine code nahi banata.
+
+Isliye bol sakte ho:
+
+> TypeScript compiler traditional binary compiler nahi hai; ye TypeScript ko JavaScript me transpile karta hai while performing static type analysis.
+
+---
+
+## 🚀 Type Erasure
+
+TypeScript ka sabse important concept.
+
+TSC final JavaScript output se **all type annotations remove** kar deta hai.
+
+Example:
+
+TypeScript:
+
+```ts
+function add(a: number, b: number): number {
+    return a + b;
+}
+```
+
+Generated JS:
+
+```js
+function add(a, b) {
+    return a + b;
+}
+```
+
+Observe:
+
+* `number`
+* return type
+* annotations
+
+Sab remove ho gaye.
+
+Is process ko kehte hain **Type Erasure**.
+
+---
+
+## 🚀 No Runtime Overhead
+
+Browser TypeScript ko directly execute nahi kar sakta.
+
+Browser sirf JavaScript samajhta hai.
+
+Execution flow:
+
+TypeScript → `tsc` → JavaScript → Browser
+
+Runtime par:
+
+* Types exist nahi karte
+* Interfaces exist nahi karte
+* Type aliases exist nahi karte
+
+Matlab:
+
+TypeScript ka main benefit **development time safety** hai, runtime feature nahi.
+
+Isliye normal TypeScript typing ka runtime cost ≈ **zero**.
+
+---
+
+## 🚀 Important Interview Line
+
+> TypeScript adds a static type system on top of JavaScript. The TypeScript compiler (`tsc`) performs type checking and transpiles TypeScript into plain JavaScript by removing type information through type erasure.
+
 
 ### ❌ JavaScript doesn't care about TYPES. AT ALL.
 
