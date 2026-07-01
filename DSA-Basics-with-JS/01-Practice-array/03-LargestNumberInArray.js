@@ -2,6 +2,7 @@
 
 function largestNumber(arr) {
     let largest = arr[0];
+    // let largest = -Infinity; // Alternative way to initialize largest number
     for (let i = 0; i < arr.length; i++) {
        if(arr[i] > largest){
         largest = arr[i];
