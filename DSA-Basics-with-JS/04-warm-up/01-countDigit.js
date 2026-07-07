@@ -11,6 +11,9 @@
 // Example: Math.ceil(4.1) returns 5, Math.ceil(4.5) returns 5
 
 function countDigit(n){
+    if(n === 0) return 1; // Edge case for 0
+
+    n = Math.abs(n); // Handle negative numbers
     let count = 0;
     while(n > 0){
         n = Math.floor(n / 10); 
