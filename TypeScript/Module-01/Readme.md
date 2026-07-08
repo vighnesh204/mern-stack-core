@@ -3,6 +3,7 @@
 => It is built on top of JavaScript and is designed to make JavaScript development more structured, safe, and scalable.
 
 => npm i -g typescript
+=> npm i -g typescript@next (for latest version)
 
 => tsc filename.ts
 => for compile file 
