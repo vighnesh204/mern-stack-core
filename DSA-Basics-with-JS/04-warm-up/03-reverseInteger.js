@@ -1,4 +1,5 @@
 const reverseInteger = (n) => {
+    // let nCopy = n;
     let isNegative = n < 0;
     n = Math.abs(n);
 
@@ -8,6 +9,10 @@ const reverseInteger = (n) => {
         rev = (rev * 10) + lastDigit;
         n = Math.floor(n / 10);
     }
+    let limit = Math.pow(2, 31);
+    // let limit = 2**31;
+    if(rev > limit - 1 || rev < -limit) return 0;
     return isNegative ? -rev : rev;
+    // return (nCopy < 0) ? -rev : rev;
 }
 console.log(reverseInteger(1234))
